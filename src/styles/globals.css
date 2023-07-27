@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: 79 70 229;
+  }
+  html {
+    @apply bg-body;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html.dark {
+    @apply bg-dark text-white;
+  }
+  html,
+  body {
+    @apply font-body antialiased;
+  }
+  .dynamic-html h6 {
+    @apply font-medium uppercase;
+  }
+  .dynamic-html p {
+    @apply mb-3;
+  }
+}
+
+@layer utilities {
+  .text-case-inherit {
+    text-transform: inherit;
+  }
+  .letter-space-inherit {
+    letter-spacing: inherit;
+  }
+  .word-break-all {
+    word-break: break-all;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+  .text-vertical {
+    writing-mode: tb;
+    text-orientation: upright;
+  }
+}
+
+@layer components {
+}
+
+/* Hide spin button for input type number */
+
+/*================================================================
+Styles for Swiper slider
+================================================================*/
+.swiper {
+  @apply flex flex-col;
+}
+
+.swiper-wrapper {
+  @apply order-first;
+}
+
+/* .swiper-scrollbar {
+  @apply relative rounded bg-gray-200 dark:bg-gray-600;
+} */
+
+.swiper-horizontal > .swiper-scrollbar {
+  @apply z-10 mb-0 mt-4 h-0.5 w-full sm:mt-6;
+}
+
+.swiper-vertical > .swiper-scrollbar {
+  @apply absolute right-1 top-0 z-10 h-full w-0.5;
+}
+
+/* .swiper-scrollbar-drag {
+  @apply relative rounded bg-gray-900 dark:bg-light-dark;
+} */
+
+.swiper-horizontal .swiper-scrollbar-drag {
+  @apply left-0 top-[-1px] h-[3px] w-full shadow-sm;
+}
+
+.swiper-vertical .swiper-scrollbar-drag {
+  @apply left-[-1px] top-0 h-full w-[3px] shadow-sm;
+}
+
+.swiper-scrollbar-cursor-drag {
+  @apply cursor-move;
+}
+
+.swiper-scrollbar-lock {
+  @apply hidden;
+}
+
+.transaction-table {
+  border-spacing: 0 12px;
+  margin-top: -12px;
+}
+.transaction-table > thead tr > th {
+  text-align: left;
+}
+.text-heading-style {
+  @apply text-sm font-medium tracking-wider;
+}
+
+/* React Share button custom styles */
+.product-share .react-share__ShareButton {
+  @apply flex flex-col items-center justify-center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  &:horizontal {
+    height: 6px;
+  }
+}
+::-webkit-scrollbar-track {
+  background: rgb(214, 214, 214);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-brand));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-brand));
+}
