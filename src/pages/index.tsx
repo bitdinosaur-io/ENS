@@ -236,8 +236,8 @@ function Repo() {
     <>
       {/* SEO */}
       <NextSeo
-        title="Ordinals - Watcher.tools"
-        description="Ordinals BRC-20 Watcher.tools BTC Bitcoin tools Coin BlockChain Analysis"
+        title="ENS - Watcher.tools"
+        description="ENS Watcher Tools Web3"
       />
 
       {/* 顶部菜单 */}

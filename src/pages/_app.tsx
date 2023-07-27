@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Ordinals - Watcher.tools</title>
+        <title>ENS - Watcher.tools</title>
       </Head>
       <ThemeProvider
         value={theme}
