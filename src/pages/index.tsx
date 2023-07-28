@@ -4,20 +4,17 @@ import { NextSeo } from "next-seo";
 import RootLayout from "@/layouts/_root-layout";
 import { useState } from "react";
 import HttpClient from "@/utils/client";
-import { Fragment } from "react";
-import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import type {
   NextPageWithLayout,
   Totals,
   GetInfoData,
-  DailyTypes,
 } from "@/types";
 import useSWR, { SWRConfig, unstable_serialize } from "swr";
 import cn from "classnames";
-import Fee from "@/components/imgs/fee.svg";
-import ETH from "@/components/imgs/ethh.svg";
+import Eth from "@/components/imgs/eth.png";
+import Ens from "@/components/imgs/ens.svg";
 import Renew from "@/components/imgs/renew.svg";
-import DAO from "@/components/imgs/dao.png";
+import DAO from "@/components/imgs/EnsDao.svg";
 import Expire from "@/components/imgs/expire.svg";
 import ExpireProtect from "@/components/imgs/expirap.svg";
 import Address from "@/components/imgs/address.svg";
@@ -29,10 +26,7 @@ import TotalSlider, { TotalCard } from "@/components/sections/total-card";
 import { PieCharts } from "@/components/sections/piecharts";
 import { Trends } from "@/components/sections/trends";
 import { Check } from "lucide-react";
-import { Coming } from "@/components/ui/coming";
-import PageTransition from "@/components/functions/PageTransition";
 import ReuseTable from "@/components/sections/reusetable";
-import { Shot } from "@/components/sections/shot";
 import { Tab } from "@headlessui/react";
 import TransformPi from "@/components/functions/tranformpi";
 
@@ -60,14 +54,14 @@ function Repo() {
     totals: [
       {
         name: "Fee",
-        logo: Fee,
+        logo: Eth,
         total: JSON.parse(total.data.fee_total),
         color: "#e0e7ff",
         symbol: " ETH",
       },
       {
         name: ".eth",
-        logo: ETH,
+        logo: Ens,
         total: JSON.parse(total.data.all_total),
         color: "#e0e7ff",
       },
@@ -80,7 +74,7 @@ function Repo() {
       {
         name: "DAO",
         logo: DAO,
-        total: JSON.parse(total.data.dao),
+        total: 16, // JSON.parse(total.data.dao),
         color: "#e0e7ff",
       },
       {
