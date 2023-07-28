@@ -230,8 +230,8 @@ function Repo() {
     <>
       {/* SEO */}
       <NextSeo
-        title="Ordinals - Watcher.tools"
-        description="Ordinals BRC-20 Watcher.tools BTC Bitcoin tools Coin BlockChain Analysis"
+        title="ENS - Watcher.tools"
+        description="ENS ETH Watcher.tools tools Ethereum Name Service BlockChain Analysis"
       />
 
       {/* 顶部菜单 */}
@@ -317,7 +317,7 @@ function Repo() {
                   hidden: !openallop,
                 })}
               />
-              All OP
+              Registration And Renew
             </button>
             <button
               onClick={toggleAllFee}
@@ -340,7 +340,7 @@ function Repo() {
                   hidden: !openallfee,
                 })}
               />
-              All Fee
+              Registration And Renew Fee
             </button>
             <button
               onClick={toggleRenewOP}
@@ -363,7 +363,7 @@ function Repo() {
                   hidden: !openrenewop,
                 })}
               />
-              Renew OP
+              Renew
             </button>
             <button
               onClick={toggleRegOP}
@@ -386,7 +386,7 @@ function Repo() {
                   hidden: !openregop,
                 })}
               />
-              Reg OP
+              Registration
             </button>
             <button
               onClick={toggleRenewFee}
@@ -432,7 +432,7 @@ function Repo() {
                   hidden: !openregfee,
                 })}
               />
-              Reg Fee
+              Registration Fee
             </button>
           </div>
           <div className="mb-6 z-20 grid grid-cols-1 auto-cols-auto gap-4 xsmall:grid-cols-2">
@@ -445,7 +445,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "All Reigstrar And Renew OP Trends",
+                  name: "ENS Daily Reigstrar And Renew Trends",
                   data: rec.op_daily_all,
                 }}
               />
@@ -459,7 +459,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "All Reigstrar And Renew Fee Trends",
+                  name: "ENS Daily Reigstrar And Renew Fee Trends",
                   data: rec.cost_daily_all,
                 }}
               />
@@ -473,7 +473,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Renew OP Trends",
+                  name: "ENS Daily Renew Trends",
                   data: rec.op_daily_renew,
                 }}
               />
@@ -487,7 +487,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Registrartion OP Trends",
+                  name: "ENS Daily Registrartion Trends",
                   data: rec.op_daily_registrartion,
                 }}
               />
@@ -501,7 +501,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Renew Fee Trends",
+                  name: "ENS Daily Renew Fee Trends",
                   data: rec.cost_daily_renew,
                 }}
               />
@@ -515,7 +515,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Registrartion Fee Trends",
+                  name: "ENS Daily Registrartion Fee Trends",
                   data: rec.cost_daily_registrartion,
                 }}
               />
