@@ -826,6 +826,7 @@ function Repo() {
                       name={"Top 100 holdings"}
                       cols={TophoderCol}
                       sort={"value"}
+                      desc={true}
                     />
                   </Tab.Panel>
                   <Tab.Panel>
@@ -834,6 +835,7 @@ function Repo() {
                       name={"Top Max Expiration Date"}
                       cols={TopMaxExpCol}
                       sort={"max_expiration"}
+                      desc={true}
                     />
                   </Tab.Panel>
                   <Tab.Panel>
@@ -842,6 +844,7 @@ function Repo() {
                       name={"Top Most Frequent Renew"}
                       cols={TopRenewFrqCol}
                       sort={"value"}
+                      desc={true}
                     />
                   </Tab.Panel>
                 </Tab.Panels>
@@ -932,36 +935,47 @@ function Repo() {
                   </Tab>
                 </Tab.List>
                 <Tab.Panels className="mt-2">
+                  {/* <!-- Latest Expiration --> */}
                   <Tab.Panel>
                     <ReuseTable
                       info={rec.latest_expiration_list}
                       name={"Latest Expiration"}
                       cols={LatestListCol}
                       sort={"times"}
+                      desc={false}
                     />
                   </Tab.Panel>
+
+                  {/* Latest Registrartion */}
                   <Tab.Panel>
                     <ReuseTable
                       info={rec.latest_registrartion_list}
                       name={"Latest Registrartion"}
                       cols={LatestListCol}
                       sort={"times"}
+                      desc={true}
                     />
                   </Tab.Panel>
+
+                  {/* Latest Renew */}
                   <Tab.Panel>
                     <ReuseTable
                       info={rec.latest_renew_list}
                       name={"Latest Renew"}
                       cols={LatestListCol}
                       sort={"times"}
+                      desc={true}
                     />
                   </Tab.Panel>
+
+                  {/* Latest End Of Protection Period */}
                   <Tab.Panel>
                     <ReuseTable
                       info={rec.latest_free_list}
                       name={"Latest End Of Protection Period"}
                       cols={LatestListCol}
                       sort={"times"}
+                      desc={false}
                     />
                   </Tab.Panel>
                 </Tab.Panels>
