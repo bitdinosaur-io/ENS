@@ -23,7 +23,7 @@ export function RadialCharts({ data, name }: RadialProps) {
 
       <div className="flex-grow w-calc-flex cursor-pointer">
         {(window.screen.width >= 640 && window.screen.width < 768) ||
-        window.screen.width >= 1280 ? (
+          window.screen.width >= 1280 ? (
           <ResponsiveRadialBar
             data={final}
             valueFormat=">-.2f"

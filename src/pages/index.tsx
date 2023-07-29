@@ -31,6 +31,8 @@ import { Tab } from "@headlessui/react";
 import TransformPi from "@/components/functions/tranformpi";
 
 import { Collapse, Tooltip } from "@material-tailwind/react";
+import { ResponsiveRadialBar } from "@nivo/radial-bar";
+import GenQuarterData from "@/components/functions/tranformpi";
 
 const fetcher = async (url: any) =>
   await HttpClient.get<Totals>(url).then((res) => res);
@@ -183,6 +185,10 @@ function Repo() {
       maxWidth: 120,
     },
   ];
+
+  const RadialData = [{ 'id': '2018-01-01 00:00:00+00', 'data': [{ 'x': 'registrartion', 'y': 116.58723576000001 }] }, { 'id': '2018-04-01 00:00:00+00', 'data': [{ 'x': 'registrartion', 'y': 128.0026411 }] }, { 'id': '2018-07-01 00:00:00+00', 'data': [{ 'x': 'registrartion', 'y': 117.03966469999999 }] }, { 'id': '2018-10-01 00:00:00+00', 'data': [{ 'x': 'registrartion', 'y': 60.011841 }] }, { 'id': '2019-01-01 00:00:00+00', 'data': [{ 'x': 'registrartion', 'y': 73.658300001001 }] }, { 'id': '2019-04-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 24.537846855858685 }, { 'x': 'registrartion', 'y': 194.42162709198084 }] }, { 'id': '2019-07-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 11.125056618138117 }, { 'x': 'registrartion', 'y': 132.0219267137928 }] }, { 'id': '2019-10-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 68.90439037851796 }, { 'x': 'registrartion', 'y': 1557.1112253698036 }] }, { 'id': '2020-01-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 234.54533963059643 }, { 'x': 'registrartion', 'y': 513.820845308638 }] }, { 'id': '2020-04-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 721.6446970019124 }, { 'x': 'registrartion', 'y': 580.5486658939664 }] }, { 'id': '2020-07-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 571.9621245320211 }, { 'x': 'registrartion', 'y': 1473.1853061336103 }] }, { 'id': '2020-10-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 376.9880603123245 }, { 'x': 'registrartion', 'y': 674.7829645899445 }] }, { 'id': '2021-01-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 231.67172380078867 }, { 'x': 'registrartion', 'y': 1015.8012659607043 }] }, { 'id': '2021-04-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 199.7386072506881 }, { 'x': 'registrartion', 'y': 899.3766425534479 }] }, { 'id': '2021-07-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 181.42241575550005 }, { 'x': 'registrartion', 'y': 1781.2524218030467 }] }, { 'id': '2021-10-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 296.0048519807949 }, { 'x': 'registrartion', 'y': 3385.4425686590116 }] }, { 'id': '2022-01-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 443.6564264323038 }, { 'x': 'registrartion', 'y': 3405.735827243673 }] }, { 'id': '2022-04-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 1066.2386143331582 }, { 'x': 'registrartion', 'y': 8042.90598692338 }] }, { 'id': '2022-07-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 2418.9766802230506 }, { 'x': 'registrartion', 'y': 9456.184206334001 }] }, { 'id': '2022-10-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 1632.820434812059 }, { 'x': 'registrartion', 'y': 3165.688874054799 }] }, { 'id': '2023-01-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 1564.1695762659022 }, { 'x': 'registrartion', 'y': 2177.447015251113 }] }, { 'id': '2023-04-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 1572.2518210040937 }, { 'x': 'registrartion', 'y': 1038.5645706328955 }] }, { 'id': '2023-07-01 00:00:00+00', 'data': [{ 'x': 'renew', 'y': 350.77392310567467 }, { 'x': 'registrartion', 'y': 302.2495148983662 }] }];
+
+
 
   // 统计面板折叠开关
   const [opentotal, setOpenTotal] = useState(true);
@@ -547,7 +553,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opencharts}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-4 large:text-base large:flex h-full w-full">
+          {/* <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAddLength}
               className={cn(
@@ -569,7 +575,7 @@ function Repo() {
                   hidden: !openaddlength,
                 })}
               />
-              ADD length
+              
             </button>
             <button
               onClick={toggleAddType}
@@ -663,7 +669,7 @@ function Repo() {
               />
               Renew & Reg Total
             </button>
-          </div>
+          </div> */}
           <div className="mb-6 grid gap-6 md:grid-cols-2">
             <div
               className={cn("h-full w-full", {
@@ -673,7 +679,7 @@ function Repo() {
               })}
             >
               <PieCharts
-                name="Percentage Of Address Length"
+                name="ENS Domain Name Length Distribution"
                 piedata={rec.pi_name_length}
               />
             </div>
@@ -685,10 +691,11 @@ function Repo() {
               })}
             >
               <PieCharts
-                name="Percentage Of Address Type"
+                name="ENS Domain Name Language Distribution"
                 piedata={rec.pi_name_type}
               />
             </div>
+
             <div
               className={cn("h-full w-full", {
                 flex: openall,
@@ -697,14 +704,28 @@ function Repo() {
               })}
             >
               <RadialCharts
-                name="Statistics Of All Cost And Total"
-                data={[
-                  TransformPi(rec.pi_quarter_total, "Total"),
-                  TransformPi(rec.pi_quarter_cost, "Cost"),
-                ]}
+                name="ENS Operations by Quarter"
+                data={
+                  GenQuarterData(rec.pi_quarter_registrartion_total, rec.pi_quarter_renew_total)
+                }
               />
             </div>
+
             <div
+              className={cn("h-full w-full", {
+                flex: openall,
+
+                hidden: !openall,
+              })}
+            >
+              <RadialCharts
+                name="ENS Fee by Quarter"
+                data={
+                  GenQuarterData(rec.pi_quarter_registrartion_cost, rec.pi_quarter_renew_cost)
+                }
+              />
+            </div>
+            {/* <div
               className={cn("h-full w-full", {
                 flex: openrrcost,
 
@@ -733,7 +754,7 @@ function Repo() {
                   TransformPi(rec.pi_quarter_registrartion_total, "Regtotal"),
                 ]}
               />
-            </div>
+            </div> */}
           </div>
         </Collapse>
       </div>
