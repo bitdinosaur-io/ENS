@@ -1,24 +1,10 @@
 // "use client";
 import Image from "next/image";
 import logopic from "@/components/imgs/logo-4.png";
-import Link from "next/link";
 import { useState } from "react";
 import { Tooltip } from "@material-tailwind/react";
 
-import { Contactus } from "../sections/contact";
 import { MenuBTN } from "@/components/sections/menu";
-import AvatarCom from "../sections/avatar";
-
-import {
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
-import { GiftTopIcon, GiftIcon, HeartIcon } from "@heroicons/react/24/solid";
-import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
 
 export function TopNav() {
   // donate dialog handler

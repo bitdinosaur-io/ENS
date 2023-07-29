@@ -4,8 +4,6 @@ import type { AppProps } from "next/app";
 import type { NextPageWithLayout } from "@/types";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
-
 import { ThemeProvider } from "@material-tailwind/react";
 
 type AppPropsWithLayout = AppProps & {
@@ -47,13 +45,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Ordinals - Watcher.tools</title>
+        <title>ENS - Watcher.tools</title>
       </Head>
       <ThemeProvider
         value={theme}
-        // attribute="class"
-        // enableSystem={false}
-        // defaultTheme="light"
+      // attribute="class"
+      // enableSystem={false}
+      // defaultTheme="light"
       >
         {getLayout(<Component key={pageKey} {...pageProps} />)}
       </ThemeProvider>

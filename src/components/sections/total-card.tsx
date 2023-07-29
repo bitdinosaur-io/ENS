@@ -19,15 +19,7 @@ export function TotalCard({
   const { data, error } = useSWR(API_ENDPOINTS.GETADDRESS);
   // console.log(data, "xix");
 
-  const check = () => {
-    if (name == "Tick") {
-      setTest(true);
-      console.log("yes");
-      console.log(test);
-    } else {
-      console.log("no");
-    }
-  };
+
   const [test, setTest] = useState(false);
   const trigger = () => setTest((cur) => !cur);
 

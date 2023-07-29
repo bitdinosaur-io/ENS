@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { StaticImageData } from "next/image";
-import { type } from "os";
 import type { ReactElement, ReactNode } from "react";
 
 export type NextPageWithLayout<P = {}> = NextPage<P> & {

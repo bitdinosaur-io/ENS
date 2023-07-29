@@ -3,7 +3,6 @@ import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useIsMounted } from "@/lib/hooks/use-is-mounted";
 import RootLayout from "@/layouts/_root-layout";
-import ErrorDarkImage from "@/asset/images/404-dark.svg";
 import AnchorLink from "@/components/functions/links/anchor-link";
 import Button from "@/components/functions/button";
 import routes from "@/config/routes";
@@ -21,8 +20,8 @@ const ErrorPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
-        title="500 Internal Server Error - ord.watcher.tools"
-        description="Ordinals BRC-20 Watcher.tools BTC Bitcoin tools Coin BlockChain Analysis"
+        title="500 Internal Server Error - ens.watcher.tools"
+        description="ENS ETH Watcher.tools tools Ethereum Name Service BlockChain Analysis"
       />
       <div className="flex max-w-full flex-col items-center justify-center text-center">
         <div className="relative w-52 max-w-full sm:w-[400px] xl:w-[450px] 3xl:w-[500px]">

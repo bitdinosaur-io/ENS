@@ -1,6 +1,5 @@
 import { ResponsiveCalendar } from "@nivo/calendar";
 import { OpDay, ShowDay } from "@/types";
-import { type } from "os";
 
 interface OpDayTrendsProps {
   data: any;
