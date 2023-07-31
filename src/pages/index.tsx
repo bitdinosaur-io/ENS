@@ -15,9 +15,11 @@ import type {
 import useSWR, { SWRConfig, unstable_serialize } from "swr";
 import cn from "classnames";
 import Fee from "@/components/imgs/fee.svg";
-import ETH from "@/components/imgs/ethh.svg";
+import WebETH from "@/components/imgs/webeth.svg";
+import ETh from "@/components/imgs/eth2.svg";
 import Renew from "@/components/imgs/renew.svg";
 import DAO from "@/components/imgs/dao.png";
+import Ens from "@/components/imgs/ens.svg";
 import Expire from "@/components/imgs/expire.svg";
 import ExpireProtect from "@/components/imgs/expirap.svg";
 import Address from "@/components/imgs/address.svg";
@@ -57,15 +59,15 @@ function Repo() {
   let rec: GetInfoData = {
     totals: [
       {
-        name: "Fee",
-        logo: Fee,
+        name: "Cost",
+        logo: ETh,
         total: JSON.parse(total.data.fee_total),
         color: "#e0e7ff",
         symbol: " ETH",
       },
       {
         name: ".eth",
-        logo: ETH,
+        logo: Ens,
         total: JSON.parse(total.data.all_total),
         color: "#e0e7ff",
       },
@@ -77,7 +79,7 @@ function Repo() {
       },
       {
         name: "DAO",
-        logo: DAO,
+        logo: Ens,
         total: JSON.parse(total.data.dao),
         color: "#e0e7ff",
       },
@@ -299,7 +301,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opentrends}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-5 large:text-base large:flex h-full w-full">
+          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAllOP}
               className={cn(
@@ -314,14 +316,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openallop,
 
                   hidden: !openallop,
                 })}
               />
-              Registration & Renew
+              Reg & Renew
             </button>
             <button
               onClick={toggleAllFee}
@@ -337,14 +339,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openallfee,
 
                   hidden: !openallfee,
                 })}
               />
-              Registration & Renew Cost
+              Reg & Renew Cost
             </button>
             <button
               onClick={toggleRenewOP}
@@ -360,7 +362,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrenewop,
 
@@ -383,7 +385,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openregop,
 
@@ -406,7 +408,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrenewfee,
 
@@ -429,14 +431,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openregfee,
 
                   hidden: !openregfee,
                 })}
               />
-              Registration Cost
+              Reg Cost
             </button>
           </div>
           <div className="mb-6 z-20 grid grid-cols-1 auto-cols-auto gap-4 xsmall:grid-cols-2">
@@ -551,7 +553,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opencharts}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-4 large:text-base large:flex h-full w-full">
+          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAddLength}
               className={cn(
@@ -566,7 +568,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openaddlength,
 
@@ -589,7 +591,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openaddtype,
 
@@ -612,14 +614,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openall,
 
                   hidden: !openall,
                 })}
               />
-              Operations Quarter
+              OP Quarter
             </button>
             <button
               onClick={toggleCost}
@@ -635,7 +637,7 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrrcost,
 
