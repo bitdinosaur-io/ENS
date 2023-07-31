@@ -21,8 +21,8 @@ const ErrorPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
-        title="500 Internal Server Error - ENS.watcher.tools"
-        description="ENS Watcher Tools Web3"
+        title="500 Internal Server Error - ens.watcher.tools"
+        description="ENS ETH Watcher.tools tools Ethereum Name Service BlockChain Analysis"
       />
       <div className="flex max-w-full flex-col items-center justify-center text-center">
         <div className="relative w-52 max-w-full sm:w-[400px] xl:w-[450px] 3xl:w-[500px]">

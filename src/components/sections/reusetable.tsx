@@ -65,8 +65,15 @@ interface DaySliderProps {
   name: any;
   cols: any;
   sort: string;
+  desc: any;
 }
-export default function ReuseTable({ info, name, cols, sort }: DaySliderProps) {
+export default function ReuseTable({
+  info,
+  name,
+  cols,
+  sort,
+  desc,
+}: DaySliderProps) {
   const data = React.useMemo(() => info, []);
 
   // 费用四舍五入
@@ -114,7 +121,7 @@ export default function ReuseTable({ info, name, cols, sort }: DaySliderProps) {
         sortBy: [
           {
             id: sort,
-            desc: true,
+            desc: desc,
           },
         ],
       },

@@ -4,7 +4,6 @@ import type { AppProps } from "next/app";
 import type { NextPageWithLayout } from "@/types";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
 
 import { ThemeProvider } from "@material-tailwind/react";
 
@@ -49,12 +48,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         />
         <title>ENS - Watcher.tools</title>
       </Head>
-      <ThemeProvider
-        value={theme}
-        // attribute="class"
-        // enableSystem={false}
-        // defaultTheme="light"
-      >
+      <ThemeProvider value={theme}>
         {getLayout(<Component key={pageKey} {...pageProps} />)}
       </ThemeProvider>
     </>
