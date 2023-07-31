@@ -301,7 +301,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opentrends}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
+          <div className="mb-4 gap-3 grid auto-cols-max whitespace-break-spaces grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAllOP}
               className={cn(
@@ -323,7 +323,7 @@ function Repo() {
                   hidden: !openallop,
                 })}
               />
-              Reg & Renew
+              Registration & Renew
             </button>
             <button
               onClick={toggleAllFee}
@@ -346,7 +346,7 @@ function Repo() {
                   hidden: !openallfee,
                 })}
               />
-              Reg & Renew Cost
+              Registration & Renew Cost
             </button>
             <button
               onClick={toggleRenewOP}
@@ -438,7 +438,7 @@ function Repo() {
                   hidden: !openregfee,
                 })}
               />
-              Reg Cost
+              Registration Cost
             </button>
           </div>
           <div className="mb-6 z-20 grid grid-cols-1 auto-cols-auto gap-4 xsmall:grid-cols-2">
