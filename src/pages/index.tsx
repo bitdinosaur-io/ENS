@@ -553,7 +553,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opencharts}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
+          {/* <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAddLength}
               className={cn(
@@ -646,7 +646,7 @@ function Repo() {
               />
               Cost Quarter
             </button>
-          </div>
+          </div> */}
           <div className="mb-6 grid gap-6 md:grid-cols-2">
             <div
               className={cn("h-full w-full", {
@@ -895,7 +895,7 @@ function Repo() {
                       name={"Latest Expiration"}
                       cols={LatestListCol}
                       sort={"times"}
-                      desc={true}
+                      desc={false}
                     />
                   </Tab.Panel>
                   <Tab.Panel>
@@ -921,7 +921,7 @@ function Repo() {
                       info={rec.latest_free_list}
                       name={"Latest End Of Protection Period"}
                       cols={LatestListCol}
-                      desc={true}
+                      desc={false}
                       sort={"times"}
                     />
                   </Tab.Panel>

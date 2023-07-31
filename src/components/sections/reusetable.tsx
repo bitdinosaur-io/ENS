@@ -65,7 +65,7 @@ interface DaySliderProps {
   name: any;
   cols: any;
   sort: string;
-  desc: any;
+  desc: boolean;
 }
 export default function ReuseTable({
   info,
