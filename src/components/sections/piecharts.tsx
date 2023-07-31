@@ -43,6 +43,7 @@ export function PieCharts({ piedata, name }: PieProps) {
     return valall;
   });
   // console.log(newpiedata, "pie");
+  newpiedata.sort((a, b) => b.value - a.value);
   // console.log(valall, "all");
 
   const [screenwidth, setScreenWidth] = useState(0);

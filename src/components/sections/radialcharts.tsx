@@ -1,5 +1,6 @@
 import { ResponsiveRadialBar } from "@nivo/radial-bar";
 import { useState } from "react";
+import cn from "classnames";
 
 interface RadialProps {
   data: any;
@@ -16,7 +17,21 @@ export function RadialCharts({ data, name }: RadialProps) {
   }
 
   return (
-    <div className="flex flex-col h-[500px] w-full rounded-lg border-2 border-solid border-gray-100 bg-white p-2">
+    <div
+      className={cn(
+        "flex flex-col w-full rounded-lg border-2 border-solid border-gray-100 bg-white p-2",
+        {
+          "h-[680px]":
+            (window.screen.width >= 640 && window.screen.width < 768) ||
+            window.screen.width >= 1280,
+
+          "h-[400px]": !(
+            (window.screen.width >= 640 && window.screen.width < 768) ||
+            window.screen.width >= 1280
+          ),
+        }
+      )}
+    >
       <h3 className="mb-1.5 text-center text-sm tracking-wider text-gray-600 dark:text-gray-400 sm:mb-2 sm:text-base">
         {name}
       </h3>
@@ -27,9 +42,9 @@ export function RadialCharts({ data, name }: RadialProps) {
           <ResponsiveRadialBar
             data={final}
             valueFormat=">-.2f"
-            innerRadius={0.2}
-            padding={0.3}
-            margin={{ top: 24, right: 0, bottom: 20, left: -90 }}
+            innerRadius={0.1}
+            padding={0.4}
+            margin={{ top: 30, right: 40, bottom: 30, left: 40 }}
             colors={{ scheme: "nivo" }}
             borderColor={{
               from: "color",
@@ -38,7 +53,7 @@ export function RadialCharts({ data, name }: RadialProps) {
             radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
             circularAxisOuter={{
               tickSize: 5,
-              tickPadding: 12,
+              tickPadding: 16,
               tickRotation: 0,
             }}
             enableLabels={false}
@@ -51,8 +66,8 @@ export function RadialCharts({ data, name }: RadialProps) {
           <ResponsiveRadialBar
             data={final}
             valueFormat=">-.2f"
-            innerRadius={0.2}
-            padding={0.3}
+            innerRadius={0.1}
+            padding={0.2}
             margin={{ top: 0, right: 20, bottom: 0, left: 20 }}
             colors={{ scheme: "nivo" }}
             borderColor={{

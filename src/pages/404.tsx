@@ -21,8 +21,8 @@ const ErrorPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
-        title="404 Not Found - ord.watcher.tools"
-        description="Ordinals BRC-20 Watcher.tools BTC Bitcoin tools Coin BlockChain Analysis"
+        title="404 Not Found - ens.watcher.tools"
+        description="ENS ETH Watcher.tools tools Ethereum Name Service BlockChain Analysis"
       />
       <div className="flex max-w-full flex-col items-center justify-center text-center">
         <div className="relative w-36 max-w-full sm:w-[200px] xl:w-[300px] 3xl:w-[400px]">

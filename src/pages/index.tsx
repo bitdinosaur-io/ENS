@@ -15,9 +15,11 @@ import type {
 import useSWR, { SWRConfig, unstable_serialize } from "swr";
 import cn from "classnames";
 import Fee from "@/components/imgs/fee.svg";
-import ETH from "@/components/imgs/ethh.svg";
+import WebETH from "@/components/imgs/webeth.svg";
+import ETh from "@/components/imgs/eth2.svg";
 import Renew from "@/components/imgs/renew.svg";
 import DAO from "@/components/imgs/dao.png";
+import Ens from "@/components/imgs/ens.svg";
 import Expire from "@/components/imgs/expire.svg";
 import ExpireProtect from "@/components/imgs/expirap.svg";
 import Address from "@/components/imgs/address.svg";
@@ -29,13 +31,11 @@ import TotalSlider, { TotalCard } from "@/components/sections/total-card";
 import { PieCharts } from "@/components/sections/piecharts";
 import { Trends } from "@/components/sections/trends";
 import { Check } from "lucide-react";
-import { Coming } from "@/components/ui/coming";
-import PageTransition from "@/components/functions/PageTransition";
 import ReuseTable from "@/components/sections/reusetable";
 import { Shot } from "@/components/sections/shot";
 import { Tab } from "@headlessui/react";
 import TransformPi from "@/components/functions/tranformpi";
-
+import GenQuarterData from "@/components/functions/genquarter";
 import { Collapse, Tooltip } from "@material-tailwind/react";
 
 const fetcher = async (url: any) =>
@@ -59,15 +59,15 @@ function Repo() {
   let rec: GetInfoData = {
     totals: [
       {
-        name: "Fee",
-        logo: Fee,
+        name: "Cost",
+        logo: ETh,
         total: JSON.parse(total.data.fee_total),
         color: "#e0e7ff",
         symbol: " ETH",
       },
       {
         name: ".eth",
-        logo: ETH,
+        logo: Ens,
         total: JSON.parse(total.data.all_total),
         color: "#e0e7ff",
       },
@@ -79,7 +79,7 @@ function Repo() {
       },
       {
         name: "DAO",
-        logo: DAO,
+        logo: Ens,
         total: JSON.parse(total.data.dao),
         color: "#e0e7ff",
       },
@@ -229,15 +229,15 @@ function Repo() {
   const toggleAll = () => setOpenAll((cur) => !cur);
   const [openrrcost, setOpenRRCost] = useState(true);
   const toggleCost = () => setOpenRRCost((cur) => !cur);
-  const [openrrtotal, setOpenRRTotal] = useState(true);
-  const toggleRRTotal = () => setOpenRRTotal((cur) => !cur);
+  // const [openrrtotal, setOpenRRTotal] = useState(true);
+  // const toggleRRTotal = () => setOpenRRTotal((cur) => !cur);
 
   return (
     <>
       {/* SEO */}
       <NextSeo
-        title="Ordinals - Watcher.tools"
-        description="Ordinals BRC-20 Watcher.tools BTC Bitcoin tools Coin BlockChain Analysis"
+        title="ENS - Watcher.tools"
+        description="ENS Watcher Tools Web3"
       />
 
       {/* 顶部菜单 */}
@@ -301,7 +301,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opentrends}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-5 large:text-base large:flex h-full w-full">
+          <div className="mb-4 gap-3 grid auto-cols-max whitespace-break-spaces grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAllOP}
               className={cn(
@@ -316,14 +316,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openallop,
 
                   hidden: !openallop,
                 })}
               />
-              All OP
+              Registration & Renew
             </button>
             <button
               onClick={toggleAllFee}
@@ -339,14 +339,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openallfee,
 
                   hidden: !openallfee,
                 })}
               />
-              All Fee
+              Registration & Renew Cost
             </button>
             <button
               onClick={toggleRenewOP}
@@ -362,14 +362,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrenewop,
 
                   hidden: !openrenewop,
                 })}
               />
-              Renew OP
+              Renew
             </button>
             <button
               onClick={toggleRegOP}
@@ -385,14 +385,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openregop,
 
                   hidden: !openregop,
                 })}
               />
-              Reg OP
+              Registration
             </button>
             <button
               onClick={toggleRenewFee}
@@ -408,14 +408,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrenewfee,
 
                   hidden: !openrenewfee,
                 })}
               />
-              Renew Fee
+              Renew Cost
             </button>
             <button
               onClick={toggleRegFee}
@@ -431,14 +431,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openregfee,
 
                   hidden: !openregfee,
                 })}
               />
-              Reg Fee
+              Registration Cost
             </button>
           </div>
           <div className="mb-6 z-20 grid grid-cols-1 auto-cols-auto gap-4 xsmall:grid-cols-2">
@@ -451,7 +451,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "All Reigstrar And Renew OP Trends",
+                  name: "ENS Daily Reigstrar And Renew Trends",
                   data: rec.op_daily_all,
                 }}
               />
@@ -465,7 +465,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "All Reigstrar And Renew Fee Trends",
+                  name: "ENS Daily Reigstrar And Renew Cost Trends",
                   data: rec.cost_daily_all,
                 }}
               />
@@ -479,7 +479,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Renew OP Trends",
+                  name: "ENS Daily Renew Trends",
                   data: rec.op_daily_renew,
                 }}
               />
@@ -493,7 +493,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Registrartion OP Trends",
+                  name: "ENS Daily Registrartion Trends",
                   data: rec.op_daily_registrartion,
                 }}
               />
@@ -507,7 +507,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Renew Fee Trends",
+                  name: "ENS Daily Renew Cost Trends",
                   data: rec.cost_daily_renew,
                 }}
               />
@@ -521,7 +521,7 @@ function Repo() {
             >
               <Trends
                 data={{
-                  name: "Daily Registrartion Fee Trends",
+                  name: "ENS Daily Registrartion Cost Trends",
                   data: rec.cost_daily_registrartion,
                 }}
               />
@@ -553,7 +553,7 @@ function Repo() {
         </div>
         {/* 内容 */}
         <Collapse open={opencharts}>
-          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-sm mid:grid-cols-4 large:text-base large:flex h-full w-full">
+          <div className="mb-4 gap-3 grid auto-cols-max whitespace-nowrap grid-cols-2 text-xs mid:grid-cols-4 large:text-base large:flex h-full w-full">
             <button
               onClick={toggleAddLength}
               className={cn(
@@ -568,14 +568,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openaddlength,
 
                   hidden: !openaddlength,
                 })}
               />
-              ADD length
+              Name length
             </button>
             <button
               onClick={toggleAddType}
@@ -591,14 +591,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openaddtype,
 
                   hidden: !openaddtype,
                 })}
               />
-              ADD Type
+              Name Lang
             </button>
             <button
               onClick={toggleAll}
@@ -614,14 +614,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openall,
 
                   hidden: !openall,
                 })}
               />
-              All
+              OP Quarter
             </button>
             <button
               onClick={toggleCost}
@@ -637,37 +637,14 @@ function Repo() {
               )}
             >
               <Check
-                size={20}
+                size={window.screen.width >= 640 ? 20 : 16}
                 className={cn("mr-1", {
                   flex: openrrcost,
 
                   hidden: !openrrcost,
                 })}
               />
-              Renew & Reg Cost
-            </button>
-            <button
-              onClick={toggleRRTotal}
-              className={cn(
-                "border-2 h-fit flex justify-center items-center transition duration-500 ease-in-out border-indigo-500 px-3 py-1 rounded-full",
-                {
-                  "text-white bg-indigo-500 hover:bg-transparent hover:text-black":
-                    openrrtotal,
-
-                  "bg-transparent text-black hover:bg-indigo-500 hover:text-white":
-                    !openrrtotal,
-                }
-              )}
-            >
-              <Check
-                size={20}
-                className={cn("mr-1", {
-                  flex: openrrtotal,
-
-                  hidden: !openrrtotal,
-                })}
-              />
-              Renew & Reg Total
+              Cost Quarter
             </button>
           </div>
           <div className="mb-6 grid gap-6 md:grid-cols-2">
@@ -679,7 +656,7 @@ function Repo() {
               })}
             >
               <PieCharts
-                name="Percentage Of Address Length"
+                name="ENS Domain Name Length Distribution"
                 piedata={rec.pi_name_length}
               />
             </div>
@@ -691,7 +668,7 @@ function Repo() {
               })}
             >
               <PieCharts
-                name="Percentage Of Address Type"
+                name="ENS Domain Name Language Distribution"
                 piedata={rec.pi_name_type}
               />
             </div>
@@ -703,11 +680,11 @@ function Repo() {
               })}
             >
               <RadialCharts
-                name="Statistics Of All Cost And Total"
-                data={[
-                  TransformPi(rec.pi_quarter_total, "Total"),
-                  TransformPi(rec.pi_quarter_cost, "Cost"),
-                ]}
+                name="ENS Operations by Quarter"
+                data={GenQuarterData(
+                  rec.pi_quarter_registrartion_total,
+                  rec.pi_quarter_renew_total
+                )}
               />
             </div>
             <div
@@ -718,26 +695,11 @@ function Repo() {
               })}
             >
               <RadialCharts
-                name="Statistics Of Renew And Reg Cost"
-                data={[
-                  TransformPi(rec.pi_quarter_renew_cost, "RenewCost"),
-                  TransformPi(rec.pi_quarter_registrartion_cost, "RegCost"),
-                ]}
-              />
-            </div>
-            <div
-              className={cn("h-full w-full", {
-                flex: openrrtotal,
-
-                hidden: !openrrtotal,
-              })}
-            >
-              <RadialCharts
-                name="Percentage of Renew And Reg Total"
-                data={[
-                  TransformPi(rec.pi_quarter_renew_total, "RenewTotal"),
-                  TransformPi(rec.pi_quarter_registrartion_total, "Regtotal"),
-                ]}
+                name="ENS Cost by Quarter"
+                data={GenQuarterData(
+                  rec.pi_quarter_registrartion_cost,
+                  rec.pi_quarter_renew_cost
+                )}
               />
             </div>
           </div>
@@ -817,6 +779,7 @@ function Repo() {
                       info={rec.top_hodle}
                       name={"Top 100 holdings"}
                       cols={TophoderCol}
+                      desc={true}
                       sort={"value"}
                     />
                   </Tab.Panel>
@@ -825,6 +788,7 @@ function Repo() {
                       info={rec.top_max_expiration}
                       name={"Top Max Expiration Date"}
                       cols={TopMaxExpCol}
+                      desc={true}
                       sort={"max_expiration"}
                     />
                   </Tab.Panel>
@@ -833,6 +797,7 @@ function Repo() {
                       info={rec.top_renew_frequent}
                       name={"Top Most Frequent Renew"}
                       cols={TopRenewFrqCol}
+                      desc={true}
                       sort={"value"}
                     />
                   </Tab.Panel>
@@ -930,6 +895,7 @@ function Repo() {
                       name={"Latest Expiration"}
                       cols={LatestListCol}
                       sort={"times"}
+                      desc={true}
                     />
                   </Tab.Panel>
                   <Tab.Panel>
@@ -937,6 +903,7 @@ function Repo() {
                       info={rec.latest_registrartion_list}
                       name={"Latest Registrartion"}
                       cols={LatestListCol}
+                      desc={true}
                       sort={"times"}
                     />
                   </Tab.Panel>
@@ -945,6 +912,7 @@ function Repo() {
                       info={rec.latest_renew_list}
                       name={"Latest Renew"}
                       cols={LatestListCol}
+                      desc={true}
                       sort={"times"}
                     />
                   </Tab.Panel>
@@ -953,6 +921,7 @@ function Repo() {
                       info={rec.latest_free_list}
                       name={"Latest End Of Protection Period"}
                       cols={LatestListCol}
+                      desc={true}
                       sort={"times"}
                     />
                   </Tab.Panel>

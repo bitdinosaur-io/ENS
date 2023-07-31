@@ -1,11 +1,8 @@
-import { TotalCardProps, LatestMintInfo } from "@/types";
+import { TotalCardProps } from "@/types";
 import Image from "next/image";
-import { useEffect, Fragment, useState } from "react";
-import { Drawer } from "@material-tailwind/react";
-// import TestTable from "./protocoltable";
-import { Dialog, Transition } from "@headlessui/react";
+import { useState } from "react";
+
 import useSWR, { SWRConfig } from "swr";
-import HttpClient from "@/utils/client";
 import { API_ENDPOINTS } from "@/utils/endpoints";
 
 export function TotalCard({
@@ -16,30 +13,18 @@ export function TotalCard({
   symbol,
   color = "#FDEDD4",
 }: TotalCardProps) {
-  const { data, error } = useSWR(API_ENDPOINTS.GETADDRESS);
-  // console.log(data, "xix");
+  // const [test, setTest] = useState(false);
+  // const trigger = () => setTest((cur) => !cur);
 
-  const check = () => {
-    if (name == "Tick") {
-      setTest(true);
-      console.log("yes");
-      console.log(test);
-    } else {
-      console.log("no");
-    }
-  };
-  const [test, setTest] = useState(false);
-  const trigger = () => setTest((cur) => !cur);
+  // let [isOpen, setIsOpen] = useState(true);
 
-  let [isOpen, setIsOpen] = useState(true);
+  // function closeModal() {
+  //   setTest(false);
+  // }
 
-  function closeModal() {
-    setTest(false);
-  }
-
-  function openModal() {
-    setTest(true);
-  }
+  // function openModal() {
+  //   setTest(true);
+  // }
   return (
     <div
       className="relative box-border flex grow shrink-0 min-h-36 min-w-56 items-center rounded-lg py-4 pr-2 shadow-card first:ml-0 last:mr-0 xl:flex-row xl:justify-between xl:py-7 3xl:justify-between"
