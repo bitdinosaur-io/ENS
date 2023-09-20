@@ -3,5 +3,5 @@ export const API_ENDPOINTS = {
   GETINFO: "/get_info",
   GETADDRESS: "/get_info/address",
   GETPROTOCOL: "/get_info/protocol",
-  ENSTOTAL: "/ens/get_totals",
+  ENSTOTAL: "/get_totals",
 };
