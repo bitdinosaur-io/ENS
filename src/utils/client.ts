@@ -3,8 +3,8 @@ import axios from "axios";
 
 export const Axios = axios.create({
   // baseURL: "http://api.ord.watcher.tools", // dev api
-  // baseURL: "https://api.watcher.tools", // deploy api
-  baseURL: "http://api.ens.diagonalley.xyz", // deploy api
+  baseURL: "https://api.watcher.tools", // deploy api
+  // baseURL: "http://api.ens.diagonalley.xyz", // deploy api
   timeout: 50000,
   headers: {
     "Content-Type": "application/json",
